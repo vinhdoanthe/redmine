@@ -1,0 +1,17 @@
+development:
+  provider: S3
+  access_key_id: <%= ENV['ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['SECRET_ACCESS_KEY'] %>
+  region: <%= ENV['REGION'] %>
+  bucket: <%= ENV['BUCKET_NAME'] %>
+  endpoint: <%= ENV['ENDPOINT'] %>
+  signature_version: 4
+
+production:
+  provider: S3
+  access_key_id: <%= ENV['ACCESS_KEY_ID'] %>
+  secret_access_key: <%= ENV['SECRET_ACCESS_KEY'] %>
+  region: <%= ENV['REGION'] %>
+  bucket: <%= ENV['BUCKET_NAME'] %>
+  endpoint: <%= ENV['ENDPOINT'] %>
+  signature_version: 4
