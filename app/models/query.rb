@@ -21,7 +21,7 @@ require 'redmine/sort_criteria'
 
 class QueryColumn
   attr_accessor :name, :totalable, :default_order
-  attr_writer   :sortable, :groupable
+  attr_accessor   :sortable, :groupable
 
   include Redmine::I18n
 
