@@ -26,6 +26,9 @@ gem 'tzinfo-data', platforms: [:mingw, :x64_mingw, :mswin]
 gem 'rotp'
 gem 'rqrcode'
 
+gem "sentry-ruby"
+gem "sentry-rails"
+
 # Optional gem for LDAP authentication
 group :ldap do
   gem 'net-ldap', '~> 0.17.0'
