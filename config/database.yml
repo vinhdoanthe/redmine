@@ -4,5 +4,7 @@ production:
   # encoding: utf8mb4
 
 development:
-  adapter: sqlite3
-  database: db/redmine.sqlite3
+  adapter: postgresql
+  url: <%= ENV['DATABASE_URL'] %>
+#  adapter: sqlite3
+#  database: db/redmine.sqlite3
