@@ -48,7 +48,7 @@ class DateTools
   end
     
   def self.IsHoliday(day)
-    if WlNationalHoliday.where("start <= ? AND end >= ?", day, day).empty? then
+    if WlNationalHoliday.where("start_date <= ? AND end_date >= ?", day, day).empty? then
       return false
     else
       return true

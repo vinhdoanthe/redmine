@@ -18,26 +18,26 @@ class NationalHolidayTest < ActiveSupport::TestCase
   end
     
   test "single holiday" do
-    holiday=WlNationalHoliday.new( :start => Date::new(2017, 5, 30), :end => Date::new(2017, 5, 30), :reason => "Test Holiday")
+    holiday=WlNationalHoliday.new(:start_date => Date::new(2017, 5, 30), :end_date => Date::new(2017, 5, 30), :reason => "Test Holiday")
     
     assert holiday.save, "Holiday could not be created or saved!"
-    assert DateTools::IsHoliday(holiday[:start]), "2017-05-30 should be a holiday!"
+    assert DateTools::IsHoliday(holiday[:start_date]), "2017-05-30 should be a holiday!"
     assert holiday.destroy, "Holiday could not be deleted!"
   end
   
   test "check holiday is day off" do
-    holiday=WlNationalHoliday.new( :start => Date::new(2017, 5, 30), :end => Date::new(2017, 5, 31), :reason => "Test Holiday with 2 days")    
+    holiday=WlNationalHoliday.new(:start_date => Date::new(2017, 5, 30), :end_date => Date::new(2017, 5, 31), :reason => "Test Holiday with 2 days")
     holiday.save
     
     assert holiday.save, "Holiday could not be created or saved!"
-    assert DateTools::IsHoliday(holiday[:start]), "2017-05-30 should be a holiday!"
-    assert DateTools::IsHoliday(holiday[:end]), "2017-05-31 should be a holiday!"
+    assert DateTools::IsHoliday(holiday[:start_date]), "2017-05-30 should be a holiday!"
+    assert DateTools::IsHoliday(holiday[:end_date]), "2017-05-31 should be a holiday!"
   end
   
   test "holiday is not workday" do    
 
-    holiday1=WlNationalHoliday.new( :start => Date::new(2017, 5, 19), :end => Date::new(2017, 5, 19), :reason => "Test Holiday")
-    holiday2=WlNationalHoliday.new( :start => Date::new(2017, 5, 16), :end => Date::new(2017, 5, 17), :reason => "Test Holiday with 2 days")
+    holiday1=WlNationalHoliday.new(:start_date => Date::new(2017, 5, 19), :end_date => Date::new(2017, 5, 19), :reason => "Test Holiday")
+    holiday2=WlNationalHoliday.new(:start_date => Date::new(2017, 5, 16), :end_date => Date::new(2017, 5, 17), :reason => "Test Holiday with 2 days")
     holiday1.save    
     holiday2.save
 

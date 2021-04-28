@@ -10,7 +10,7 @@ class WlNationalHolidayController < ApplicationController
   def index            
     filter_year_start=Date.new(@this_year,01,01)
     filter_year_end=Date.new(@this_year,12,31)
-    @wl_national_holiday = WlNationalHoliday.where("start between ? AND ?", filter_year_start, filter_year_end)
+    @wl_national_holiday = WlNationalHoliday.where("start_date between ? AND ?", filter_year_start, filter_year_end)
     @is_allowed = User.current.allowed_to_globally?(:edit_national_holiday)
   end
   
@@ -79,6 +79,6 @@ private
  end
 
  def wl_national_holiday_params
-    params.require(:wl_national_holiday).permit(:start,:end,:reason)
+    params.require(:wl_national_holiday).permit(:start_date, :end_date, :reason)
  end
 end
